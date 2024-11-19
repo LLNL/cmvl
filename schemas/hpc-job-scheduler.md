@@ -7,22 +7,25 @@ Tools being targeted:
 - Slurm Job Logs
 - Flux Job Logs
 
-## Job Log Schema
+## Job Completion Log Schema
+
+This schema is for the job completion information of a completed job. In Slurm, this information is controlled by the `JobComp*` fields, such as `JobCompType` and `JobCompLoc` (see: <https://slurm.schedmd.com/slurm.conf.html> for more information).
 
 | **Field Name**         | **Field Explanation**                                                                | **Slurm**       | **Flux**         |
 | ---------------------- | ------------------------------------------------------------------------------------ | --------------- | ---------------- |
+| event.dataset\*        | Name of the dataset "slurm.joblog"                                                   | "slurm.joblog"  | "flux.joblog"    |
 | job.id                 | Unique identifier of the job                                                         | JobId           | id               |
-| user.name              | User name of who submitted the job                                                   | UserId          | username         |
-| user.id                | User ID number of who submitted the job                                              | UserId          | userId           |
-| group.id               | Group ID number of who submitted the job                                             | GroupId         |                  |
-| group.name             | Group ID number of who submitted the job                                             | GroupId         | jobspec.name     |
-| event.outcome          | The final state of the job                                                           | JobState        | result           |
+| user.name\*            | User name of who submitted the job                                                   | UserId          | username         |
+| user.id\*              | User ID number of who submitted the job                                              | UserId          | userId           |
+| group.id\*             | Group ID number of who submitted the job                                             | GroupId         |                  |
+| group.name\*           | Group ID number of who submitted the job                                             | GroupId         | jobspec.name     |
+| event.outcome\*        | The final state of the job                                                           | JobState        | result           |
 | job.queue              | The queue the job was submitted to                                                   | Partition       | queue            |
 | job.timelimit          | Maximum time job could have ran for.                                                 | TimeLimit       | expiration       |
-| event.start            | Time that the job started.                                                           | StartTime       | t_run            |
-| event.end              | Time that the job ended.                                                             | EndTime         | t_inactive       |
-| event.duration         | The actual amount of time the job ran for (event.start - event.end) (in nanoseconds) |                 | jobspec.duration |
-| event.duration_seconds | The actual amount of time the job ran for (event.start - event.end) (in seconds)     |                 |                  |
+| event.start\*          | Time that the job started.                                                           | StartTime       | t_run            |
+| event.end\*            | Time that the job ended.                                                             | EndTime         | t_inactive       |
+| event.duration\*       | The actual amount of time the job ran for (event.start - event.end) (in nanoseconds) |                 | jobspec.duration |
+| event.duration_seconds | The actual amount of time the job ran for (event.start - event.end) (in seconds)\*\* |                 |                  |
 | job.node.list          | list of nodes being used, can be a range ex: corona[155, 157, 180-190]               | NodeList        | R.hostlist       |
 | job.node.count         | Count of nodes used                                                                  | NodeCnt         | nnodes           |
 | job.proc.count         | Number of processors (typically number of processes per node \* number of nodes)     | ProcCnt         |                  |
@@ -38,4 +41,7 @@ Tools being targeted:
 | job.exit_code          |                                                                                      | ExitCode        |                  |
 | job.exit_signal        | The signal number, if the job's termination was caused by a signal being sent.       | ExitCode        |                  |
 | job.scheduler          | The job scheduler used                                                               | "slurm"         | "flux"           |
-| event.original         | The entire original event. Keep for debugging purposes                               |                 |                  |
+| event.original\*       | The entire original event. Keep for debugging purposes                               |                 |                  |
+
+- \* Event fields are adapted from the [Elastic Common Schema (ECS)](https://www.elastic.co/guide/en/ecs/current/ecs-field-reference.html)
+- \*\* Indicates that value is derived from other values, and not reported directly from the tool.
