@@ -18,7 +18,8 @@ This schema is for the job completion information of a completed job. In Slurm, 
 | user.name\*            | keyword           | User name of who submitted the job                                                   | UserId          | username         |
 | user.id\*              | keyword           | User ID number of who submitted the job                                              | UserId          | userId           |
 | group.id\*             | keyword           | Group ID number of who submitted the job                                             | GroupId         |                  |
-| group.name\*           | keyword           | Group ID number of who submitted the job                                             | GroupId         | jobspec.name     |
+| group.name\*           | keyword           | Group ID number of who submitted the job                                             | GroupId         |                  |
+| job.name               | keyword           | The name of the job, input by the user                                               | Name            | jobspec.name     |
 | event.outcome\*        | keyword           | The final state of the job                                                           | JobState        | result           |
 | job.queue              | keyword           | The queue the job was submitted to                                                   | Partition       | queue            |
 | job.timelimit          | keyword           | Maximum time job could have ran for.                                                 | TimeLimit       | expiration       |
