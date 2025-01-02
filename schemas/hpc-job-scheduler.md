@@ -44,6 +44,7 @@ The columns for "Slurm" and "Flux" represent the field in that data set which is
 | job.eligibletime         | date          |                                                                                      | EligibleTime    |                  |
 | job.exit_code            | integer       |                                                                                      | ExitCode        |                  |
 | job.exit_signal          | integer       | The signal number, if the job's termination was caused by a signal being sent.       | ExitCode        |                  |
+| job.queue_time \*\*      | integer       | The time in seconds that the job was waiting in the queue (end time - eligible time) |                 |                  |
 | job.scheduler            | keyword       | The job scheduler used                                                               | "slurm"         | "flux"           |
 | message\*                | text          | The entire original event. Keep for debugging purposes                               |                 |                  |
 
