@@ -20,7 +20,7 @@ The columns for "Slurm" and "Flux" represent the field in that data set which is
 | user.name\*              | keyword       | User name of who submitted the job                                                   | UserId          | username         |
 | user.id\*                | keyword       | User ID number of who submitted the job                                              | UserId          | userId           |
 | group.id\*               | keyword       | Group ID number of who submitted the job                                             | GroupId         |                  |
-| group.name\*             | keyword       | Group ID number of who submitted the job                                             | GroupId         |                  |
+| group.name\*             | keyword       | Group name of who submitted the job                                                  | GroupId         |                  |
 | job.name                 | keyword       | The name of the job, input by the user                                               | Name            | jobspec.name     |
 | event.outcome\*          | keyword       | The final state of the job                                                           | JobState        | result           |
 | job.queue                | keyword       | The queue the job was submitted to                                                   | Partition       | queue            |
@@ -45,7 +45,7 @@ The columns for "Slurm" and "Flux" represent the field in that data set which is
 | job.exit_code            | integer       |                                                                                      | ExitCode        |                  |
 | job.exit_signal          | integer       | The signal number, if the job's termination was caused by a signal being sent.       | ExitCode        |                  |
 | job.scheduler            | keyword       | The job scheduler used                                                               | "slurm"         | "flux"           |
-| event.original\*         | text          | The entire original event. Keep for debugging purposes                               |                 |                  |
+| message\*                | text          | The entire original event. Keep for debugging purposes                               |                 |                  |
 
 - Data Types are as defined by [Elastic Field Data Types](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html)
 - \* Event fields defined by the [Elastic Common Schema (ECS)](https://www.elastic.co/guide/en/ecs/current/ecs-field-reference.html)
