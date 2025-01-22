@@ -46,6 +46,8 @@ The columns for "Slurm" and "Flux" represent the field in that data set which is
 | job.exit_signal          | integer       | The signal number, if the job's termination was caused by a signal being sent.       | ExitCode        |                  |
 | job.queue_time \*\*      | integer       | The time in seconds that the job was waiting in the queue (end time - eligible time) |                 |                  |
 | job.scheduler            | keyword       | The job scheduler used                                                               | "slurm"         | "flux"           |
+| job.exception_type       | keyword       | The type of exception that was raised on a job.                                      |                 | exception_type   |
+| job.exception_note       | text          | Any notes or additional details containing the reason for a job exception.           |                 | exception_note   |
 | message\*                | text          | The entire original event. Keep for debugging purposes                               |                 |                  |
 
 - Data Types are as defined by [Elastic Field Data Types](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html)
