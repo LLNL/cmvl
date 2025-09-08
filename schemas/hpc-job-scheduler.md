@@ -53,3 +53,9 @@ The columns for "Slurm" and "Flux" represent the field in that data set which is
 - Data Types are as defined by [Elastic Field Data Types](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html)
 - \* Event fields defined by the [Elastic Common Schema (ECS)](https://www.elastic.co/guide/en/ecs/current/ecs-field-reference.html)
 - \*\* Indicates that value is derived from other values, and not reported directly from the tool.
+
+### Notes
+
+* Some of the `event.*` fields are not guaranteed to be populated in a Flux job
+if the job is cancelled or fails before proceeding to its `RUN` state. See
+[RFC 21 - Job States and Events Version 1](https://flux-framework.readthedocs.io/projects/flux-rfc/en/latest/spec_21.html) for more details.
