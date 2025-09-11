@@ -15,6 +15,7 @@ The columns for "Slurm" and "Flux" represent the field in that data set which is
 
 | **Field Name**           | **Data Type** | **Field Explanation**                                                                                         | **Slurm**       | **Flux**         |
 | ------------------------ | ------------- | ------------------------------------------------------------------------------------------------------------- | --------------- | ---------------- |
+| schema.version           | integer       | The version of this schema that the log aligns with                                                           | 1               | 1                |
 | event.dataset\*          | keyword       | Name of the dataset "slurm.joblog"                                                                            | "slurm.joblog"  | "flux.joblog"    |
 | job.id                   | keyword       | Scheduler managed identifier of the job                                                                       | JobId           | id               |
 | user.name\*              | keyword       | User name of who submitted the job                                                                            | UserId          | username         |
