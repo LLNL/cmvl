@@ -29,8 +29,9 @@ The columns for "Slurm" and "Flux" represent the field in that data set which is
 | job.timelimit_seconds    | long          | Maximum time job could have ran for, converted to seconds.                                                    |                 |                  |
 | event.start\*            | date          | Time that the job started.                                                                                    | StartTime       | t_run            |
 | event.end\*              | date          | Time that the job ended.                                                                                      | EndTime         | t_inactive       |
-| event.duration\*         | long          | The actual amount of time the job ran for (event.start - event.end) (in nanoseconds)                          |                 | jobspec.duration |
+| event.duration\*         | long          | The actual amount of time the job ran for (event.start - event.end) (in nanoseconds)                          |                 |                  |
 | event.duration_seconds\* | long          | The actual amount of time the job ran for (event.start - event.end) (in seconds)\*\*                          |                 |                  |
+| job.requested_duration\* | long          | The amount of time a job is allowed to run (in seconds)                                                       |                 | jobspec.duration |
 | job.node.list            | text          | list of nodes being used, can be a range ex: corona[155, 157, 180-190]                                        | NodeList        | R.hostlist       |
 | job.node.count           | integer       | Count of nodes used                                                                                           | NodeCnt         | nnodes           |
 | job.proc.count           | integer       | Number of processors (typically number of processes per node \* number of nodes)                              | ProcCnt         |                  |
