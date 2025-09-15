@@ -1,4 +1,4 @@
-# HPC Job Scheduler Event Schema - Version 1
+# HPC Job Scheduler Event Schema - Version 2
 
 NOTE: Work in Progress!
 
